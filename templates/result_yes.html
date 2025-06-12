@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Risk Detected</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container result-container">
+        <div class="result-card high-risk">
+            <div class="result-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h1>HIGH RISK DETECTED</h1>
+            <div class="result-message">
+                <h2>Heart Disease Risk: <span class="risk-level">YES</span></h2>
+                {% if confidence != 'N/A' %}
+                <p class="confidence">Confidence: {{ confidence }}%</p>
+                {% endif %}
+            </div>
+            
+            <div class="recommendations">
+                <h3><i class="fas fa-list-ul"></i> Immediate Recommendations:</h3>
+                <ul>
+                    <li><i class="fas fa-user-md"></i> <strong>Consult a cardiologist immediately</strong></li>
+                    <li><i class="fas fa-heartbeat"></i> Schedule comprehensive cardiac evaluation</li>
+                    <li><i class="fas fa-notes-medical"></i> Get ECG, echocardiogram, and stress tests</li>
+                    <li><i class="fas fa-pills"></i> Discuss medication options with your doctor</li>
+                    <li><i class="fas fa-apple-alt"></i> Adopt heart-healthy lifestyle changes</li>
+                </ul>
+            </div>
+
+            <div class="lifestyle-tips">
+                <h3><i class="fas fa-heart"></i> Heart-Healthy Lifestyle:</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <i class="fas fa-utensils"></i>
+                        <p>Follow a low-sodium, low-fat diet</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-dumbbell"></i>
+                        <p>Regular moderate exercise (as advised by doctor)</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-ban"></i>
+                        <p>Quit smoking and limit alcohol</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-weight"></i>
+                        <p>Maintain healthy weight</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emergency-info">
+                <h3><i class="fas fa-phone-alt"></i> Emergency Signs - Call 911:</h3>
+                <p>Chest pain, shortness of breath, nausea, cold sweats, or pain in arms/jaw</p>
+            </div>
+
+            <div class="result-actions">
+                <a href="{{ url_for('index') }}" class="btn secondary-btn">
+                    <i class="fas fa-redo"></i> Take Another Test
+                </a>
+                <button onclick="window.print()" class="btn print-btn">
+                    <i class="fas fa-print"></i> Print Results
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <p><i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> This prediction is based on AI analysis and should not replace professional medical diagnosis. Please consult a healthcare provider immediately.</p>
+        </footer>
+    </div>
+</body>
+</html>

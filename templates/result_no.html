@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low Heart Disease Risk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container result-container">
+        <div class="result-card low-risk">
+            <div class="result-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>LOW RISK DETECTED</h1>
+            <div class="result-message">
+                <h2>Heart Disease Risk: <span class="risk-level">NO</span></h2>
+                {% if confidence != 'N/A' %}
+                <p class="confidence">Confidence: {{ confidence }}%</p>
+                {% endif %}
+            </div>
+            
+            <div class="recommendations">
+                <h3><i class="fas fa-thumbs-up"></i> Great News!</h3>
+                <p>Based on the provided information, you have a <strong>low risk</strong> of heart disease. However, maintaining a heart-healthy lifestyle is still important for long-term cardiovascular health.</p>
+            </div>
+
+            <div class="lifestyle-tips">
+                <h3><i class="fas fa-heart"></i> Maintain Heart Health:</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <i class="fas fa-apple-alt"></i>
+                        <p>Eat a balanced, nutritious diet</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-running"></i>
+                        <p>Stay physically active (150 min/week)</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-bed"></i>
+                        <p>Get adequate sleep (7-9 hours)</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-smile"></i>
+                        <p>Manage stress effectively</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prevention-tips">
+                <h3><i class="fas fa-shield-alt"></i> Prevention Tips:</h3>
+                <ul>
+                    <li><i class="fas fa-calendar-check"></i> Regular health checkups (annually)</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Monitor blood pressure regularly</li>
+                    <li><i class="fas fa-flask"></i> Check cholesterol levels periodically</li>
+                    <li><i class="fas fa-ban"></i> Avoid smoking and excessive alcohol</li>
+                    <li><i class="fas fa-weight"></i> Maintain healthy BMI (18.5-24.9)</li>
+                </ul>
+            </div>
+
+            <div class="healthy-ranges">
+                <h3><i class="fas fa-chart-line"></i> Healthy Ranges to Maintain:</h3>
+                <div class="ranges-grid">
+                    <div class="range-item">
+                        <strong>Blood Pressure:</strong> &lt; 120/80 mmHg
+                    </div>
+                    <div class="range-item">
+                        <strong>Cholesterol:</strong> &lt; 200 mg/dL
+                    </div>
+                    <div class="range-item">
+                        <strong>Fasting Glucose:</strong> &lt; 100 mg/dL
+                    </div>
+                    <div class="range-item">
+                        <strong>BMI:</strong> 18.5-24.9 kg/m²
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <a href="{{ url_for('index') }}" class="btn secondary-btn">
+                    <i class="fas fa-redo"></i> Take Another Test
+                </a>
+                <button onclick="window.print()" class="btn print-btn">
+                    <i class="fas fa-print"></i> Print Results
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <p><i class="fas fa-info-circle"></i> <strong>Remember:</strong> This prediction is based on AI analysis. Continue regular checkups with your healthcare provider for optimal heart health.</p>
+        </footer>
+    </div>
+</body>
+</html>
