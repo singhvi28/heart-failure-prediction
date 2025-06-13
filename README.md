@@ -156,7 +156,7 @@ heart-failure-prediction/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/si/heart-disease-prediction.git
+git clone https://github.com/singhvi28/heart-disease-prediction.git
 cd heart-disease-prediction
 ```
 
