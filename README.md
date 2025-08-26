@@ -120,8 +120,13 @@ rf_param_grid = {
 heart-failure-prediction/
 │
 ├── .gitignore                       # Specifies untracked files
+|
 ├── README.md                       # Project documentation
 │
+├── requirements.txt                # Python dependencies
+│
+├── Dockerfile
+|
 ├── app.py                          # Flask application
 │
 ├── templates/
@@ -139,8 +144,6 @@ heart-failure-prediction/
 |
 ├── dataset/
 │   ├── heart.csv              # Dataset
-|
-├── requirements.txt                # Python dependencies
 |
 └── jupyter/
     └── heart_failure.ipynb
@@ -182,6 +185,7 @@ scikit-learn==1.3.0
 joblib==1.3.2
 numpy==1.26.4
 Werkzeug==2.3.7
+gunicorn==21.2.0
 ```
 
 ## 🔧 Usage
